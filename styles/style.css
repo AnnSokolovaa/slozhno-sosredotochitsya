@@ -47,7 +47,6 @@
   width: 9px;
   border-radius: 50%;
   box-shadow: 0px 0px 4px 2px var(--main-color, #ff0070);
-  fill: var(--main-color);
   background-color: var(--main-color);
 }
 
@@ -75,14 +74,15 @@
 
 .header__theme-menu-button {
   appearance: none;
-  border: none;
   background: transparent;
   color: var(--button-color);
   margin-bottom: 10px;
   text-transform: lowercase;
   width: 70px;
+  height: 26px;
   border: 1px solid transparent;
   font-size: 18px;
+  line-height: 18px; 
   font-family: var(--main-font);
   cursor: pointer;
 }
@@ -106,7 +106,7 @@
   color: var(--title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-weight: 700;
-  line-height: 82.5%; /* 95.7px */
+  line-height: 0.825; /* 95.7px */
   text-shadow: 4px 4px 0px var(--main-color);
 }
 
@@ -114,7 +114,7 @@
   align-self: center;
 }
 
-main {
+.content {
   padding: 10px;
 }
 .title-decor {
@@ -156,12 +156,13 @@ main {
   font-weight: 400;
 }
 
-section {
+.section {
   margin-bottom: 30px;
 }
 
 .text_link {
-  text-shadow: 1.5px 2px 0px var(--main-color);
+  text-shadow: 2px 2px 0px var(--main-color);
+  text-decoration: none;
 }
 
 .text_link:hover {
@@ -171,7 +172,7 @@ section {
   outline: 1px solid var(--text-color);
 }
 
-.link-effects:focus {
+.text_link:focus {
   outline: none;
 }
 .collage {
@@ -181,10 +182,10 @@ section {
   padding-top: 10px;
 }
 .sunset_picture {
-  grid-row-start: 1/2;
+  grid-row: 1/2;
 }
 .ice-ream_picture {
-  grid-row-start: 2/3;
+  grid-row: 2/3;
 }
 
 .galary_title {
@@ -194,9 +195,11 @@ section {
 .picture {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; 
+  object-position: center;
 }
-footer {
+
+.footer {
   display: flex;
   min-height: 666px;
   height: 100vh;
@@ -212,8 +215,8 @@ footer {
 }
 
 @media (width >= 768px) {
-  main,
-  footer {
+  .content,
+  .footer {
     padding: 20px;
   }
   .decorated-zone {
@@ -233,7 +236,6 @@ footer {
     top: 20px;
   }
   .header {
-    display: grid;
     grid-template-rows: 1fr auto 1fr;
     margin-bottom: 40px;
   }
@@ -243,7 +245,7 @@ footer {
   }
 
   .sub-title {
-    width: 364px;
+    max-width: 364px;
     justify-self: end;
     margin-right: 20px;
     line-height: 130%;
@@ -298,7 +300,6 @@ footer {
   }
 
   .collage {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 192px 230px 318px;
     gap: 20px;
@@ -340,7 +341,7 @@ footer {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
   .sub-title {
-    min-width: 491px;
+    max-width: 491px;
   }
 
   .introduction_title {
